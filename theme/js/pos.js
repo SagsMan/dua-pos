@@ -374,11 +374,7 @@ $('#show_cash_modal').on("click",function (e) {
 		return;
     }
     else{
-    	adjust_payments();
-    	$("#add_payment_row,#payment_type_1").parent().hide();
-    	$("#amount_1").focus();
-    	$("#amount_1").parent().parent().removeClass('col-md-6').addClass('col-md-12');
-    	$('#multiple-payments-modal').modal('toggle');
+        save(true, true);
     }
 }); //hold_invoice end
 
