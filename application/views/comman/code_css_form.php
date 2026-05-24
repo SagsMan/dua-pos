@@ -14,17 +14,17 @@
   <meta property="og:title"       content="<?= isset($page_title) ? htmlspecialchars($page_title) : 'Dua Fashion'; ?> — DuaFashion.store" />
   <meta property="og:description" content="Africa's finest fashion retail management system. Clothing, shoes, jewelry, bags &amp; accessories — all in one place." />
   <meta property="og:url"         content="https://pos.duafashion.store" />
-  <meta property="og:image"       content="https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop" />
-  <meta property="og:image:width"  content="1200" />
-  <meta property="og:image:height" content="630" />
+  <meta property="og:image"       content="https://pos.duafashion.store/theme/images/dua-logo.jpeg" />
+  <meta property="og:image:width"  content="540" />
+  <meta property="og:image:height" content="1140" />
   <meta property="og:image:alt"   content="Dua Fashion — Premium African Fashion Retail" />
   <meta property="og:locale"      content="en_NG" />
 
   <!-- ═══ TWITTER CARD ════════════════════════════════════════ -->
-  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:card"        content="summary" />
   <meta name="twitter:title"       content="Dua Fashion — Premium Fashion Retail POS" />
   <meta name="twitter:description" content="Africa's finest fashion retail management system. Clothing, shoes, jewelry, bags &amp; accessories." />
-  <meta name="twitter:image"       content="https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop" />
+  <meta name="twitter:image"       content="https://pos.duafashion.store/theme/images/dua-logo.jpeg" />
 
   <!-- ═══ GENERAL SEO ═════════════════════════════════════════ -->
   <meta name="description"  content="Dua Fashion POS — Africa's premium fashion retail management system. Manage clothing, shoes, jewelry, bags &amp; accessories at DuaFashion.store" />
