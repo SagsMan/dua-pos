@@ -6,20 +6,16 @@
   <style type="text/css">
       * { margin: 0; padding: 0; box-sizing: border-box; }
 
-      /* Watermark */
-      .receipt-watermark {
+      /* Tiled watermark overlay (OPay-style) */
+      body::after {
+          content: '';
           position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%) rotate(-35deg);
-          font-size: 20px;
-          font-weight: 900;
-          letter-spacing: 4px;
-          color: rgba(0,0,0,0.04);
-          white-space: nowrap;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
           pointer-events: none;
-          z-index: 0;
-          text-transform: uppercase;
+          z-index: 9999;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='70'%3E%3Ctext x='70' y='40' text-anchor='middle' font-family='Arial,sans-serif' font-size='10' font-weight='900' fill='rgba(0%2C0%2C0%2C0.07)' transform='rotate(-35%2C70%2C35)' letter-spacing='2'%3EDUA FASHION%3C/text%3E%3C/svg%3E");
+          background-repeat: repeat;
       }
 
       body {
@@ -131,36 +127,25 @@
 
       @media print {
           .no-print { display: none !important; }
-          .receipt-watermark { position: fixed; }
           body { margin: 0; padding: 2px; width: 58mm; }
           @page { margin: 0; size: 58mm auto; }
+          body::after { position: fixed; }
       }
-      .no-print { text-align: center; padding: 10px; }
-      .btn-print { padding: 5px 16px; background: #28a745; color: #fff; border: none; cursor: pointer; border-radius: 3px; margin: 3px; font-size: 11px; }
-      .btn-back  { padding: 5px 16px; background: #dc3545; color: #fff; border: none; cursor: pointer; border-radius: 3px; margin: 3px; font-size: 11px; }
   </style>
   </head>
   <body>
 
-  <!-- Watermark -->
-  <div class="receipt-watermark"><?php
+  <?php
   $CI =& get_instance();
   $q1=$this->db->query("select * from db_company where id=1 and status=1");
   $res1=$q1->row();
-  echo strtoupper($res1->company_name);
-  ?></div>
 
-  <?php
   $company_name               = $res1->company_name;
   $company_mobile             = $res1->mobile;
   $company_phone              = $res1->phone;
   $company_address            = $res1->address;
   $company_city               = $res1->city;
   $company_logo               = $res1->company_logo;
-
-  $q4=$this->db->query("select sales_invoice_footer_text from db_sitesettings where id=1");
-  $res4=$q4->row();
-  $sales_invoice_footer_text=$res4->sales_invoice_footer_text;
 
   $q3=$this->db->query("SELECT a.sales_due,a.customer_name,a.mobile,a.phone,
                      a.opening_balance,
@@ -368,22 +353,9 @@
 
   <!-- FOOTER -->
   <div class="footer">
-      <?php if(!empty($sales_invoice_footer_text)): ?>
-      <div><?= $sales_invoice_footer_text; ?></div>
-      <?php endif; ?>
       <div class="no-refund">No Refund After Payment</div>
       <div class="thanks">Thank you for your patronage!</div>
       <div style="margin-top:3px; font-size:8px; color:#888;"><?= $sales_date; ?> &nbsp; <?= $created_time; ?></div>
-  </div>
-
-  <!-- PRINT BUTTON (hidden on print) -->
-  <div class="no-print" style="margin-top: 12px;">
-      <button class="btn-print" onclick="window.print();">&#128438; Print Receipt</button>
-      <?php if(isset($_GET['redirect'])): ?>
-      <a href="<?= base_url().$_GET['redirect']; ?>">
-          <button class="btn-back">&#8592; Back</button>
-      </a>
-      <?php endif; ?>
   </div>
 
   <script>
