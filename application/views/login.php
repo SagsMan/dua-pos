@@ -6,9 +6,9 @@
   <title><?php print $SITE_TITLE; ?> | Sign In</title>
 
   <!-- ═══ FAVICON & TOUCH ICONS ═══════════════════════════════ -->
-  <link rel="icon"             type="image/x-icon"  href="<?php echo $theme_link; ?>images/favicon.ico" />
-  <link rel="shortcut icon"    type="image/x-icon"  href="<?php echo $theme_link; ?>images/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180"      href="<?php echo $theme_link; ?>images/favicon.ico" />
+  <link rel="icon"             type="image/jpeg"    href="https://pos.duafashion.store/theme/images/dua-logo.jpeg" />
+  <link rel="shortcut icon"    type="image/jpeg"    href="https://pos.duafashion.store/theme/images/dua-logo.jpeg" />
+  <link rel="apple-touch-icon" sizes="180x180"      href="https://pos.duafashion.store/theme/images/dua-logo.jpeg" />
 
   <!-- ═══ OPEN GRAPH — WhatsApp / Facebook / LinkedIn ════════ -->
   <meta property="og:type"        content="website" />
@@ -16,17 +16,17 @@
   <meta property="og:title"       content="Dua Fashion — Premium Fashion Retail POS" />
   <meta property="og:description" content="Africa's finest fashion retail management system. Clothing, shoes, jewelry, bags & accessories — all in one place. Visit DuaFashion.store" />
   <meta property="og:url"         content="https://pos.duafashion.store/login" />
-  <meta property="og:image"       content="https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop" />
-  <meta property="og:image:width"  content="1200" />
-  <meta property="og:image:height" content="630" />
+  <meta property="og:image"       content="https://pos.duafashion.store/theme/images/dua-logo.jpeg" />
+  <meta property="og:image:width"  content="540" />
+  <meta property="og:image:height" content="1140" />
   <meta property="og:image:alt"   content="Dua Fashion — Premium African Fashion Retail" />
   <meta property="og:locale"      content="en_NG" />
 
   <!-- ═══ TWITTER CARD ════════════════════════════════════════ -->
-  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:card"        content="summary" />
   <meta name="twitter:title"       content="Dua Fashion — Premium Fashion Retail POS" />
   <meta name="twitter:description" content="Africa's finest fashion retail management system. Clothing, shoes, jewelry, bags & accessories." />
-  <meta name="twitter:image"       content="https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop" />
+  <meta name="twitter:image"       content="https://pos.duafashion.store/theme/images/dua-logo.jpeg" />
   <meta name="twitter:image:alt"   content="Dua Fashion Store" />
 
   <!-- ═══ GENERAL SEO ════════════════════════════════════════ -->
@@ -398,20 +398,21 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 72px;
-      height: 72px;
-      background: linear-gradient(135deg, rgba(201,146,42,0.2), rgba(232,184,75,0.1));
-      border: 1.5px solid var(--gold);
-      border-radius: 18px;
+      width: 88px;
+      height: 88px;
+      background: #000;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
       margin-bottom: 16px;
+      overflow: hidden;
       transition: all 0.4s;
     }
 
     .brand-logo-wrap img {
-      width: 52px;
-      height: 52px;
-      object-fit: contain;
-      border-radius: 8px;
+      width: 88px;
+      height: 88px;
+      object-fit: cover;
+      border-radius: 50%;
     }
 
     .brand-logo-placeholder {
@@ -811,6 +812,24 @@
 
     /* Override Bootstrap defaults that bleed through */
     .form-control { box-shadow: none !important; }
+
+    /* ═══ WATERMARK ════════════════════════════════════════════ */
+    .login-watermark {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      object-fit: cover;
+      opacity: 0.07;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+    .login-panel { position: relative; overflow: hidden; }
+    .login-card  { position: relative; z-index: 1; }
   </style>
 </head>
 <body>
@@ -864,6 +883,9 @@
   ============================================================ -->
   <div class="login-panel">
 
+    <!-- Watermark logo -->
+    <img src="https://pos.duafashion.store/theme/images/dua-logo.jpeg" alt="" class="login-watermark" aria-hidden="true">
+
     <!-- Theme toggle -->
     <button class="theme-toggle" id="themeToggle" title="Toggle theme">
       <i class="fas fa-moon" id="themeIcon"></i>
@@ -875,11 +897,7 @@
       <!-- Brand header -->
       <div class="brand-header">
         <div class="brand-logo-wrap">
-          <?php if(!empty($logo) && file_exists(FCPATH.'uploads/'.$logo)): ?>
-            <img src="<?= $base_url ?>uploads/<?= $logo ?>" alt="<?php print $SITE_TITLE; ?>">
-          <?php else: ?>
-            <span class="brand-logo-placeholder">D</span>
-          <?php endif; ?>
+          <img src="https://pos.duafashion.store/theme/images/dua-logo.jpeg" alt="Dua Fashion">
         </div>
         <div class="brand-name"><?php print $SITE_TITLE; ?></div>
         <div class="brand-tagline">Fashion Retail Management System</div>
