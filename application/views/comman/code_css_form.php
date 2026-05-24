@@ -2,7 +2,36 @@
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title><?= $page_title;?></title>
-  <link rel='shortcut icon' href='<?php echo $theme_link; ?>images/favicon.ico' />
+
+  <!-- ═══ FAVICON & TOUCH ICONS ═══════════════════════════════ -->
+  <link rel="icon"             type="image/x-icon"  href="<?php echo $theme_link; ?>images/favicon.ico" />
+  <link rel="shortcut icon"    type="image/x-icon"  href="<?php echo $theme_link; ?>images/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180"      href="<?php echo $theme_link; ?>images/favicon.ico" />
+
+  <!-- ═══ OPEN GRAPH — WhatsApp / Facebook / LinkedIn ════════ -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="Dua Fashion" />
+  <meta property="og:title"       content="<?= isset($page_title) ? htmlspecialchars($page_title) : 'Dua Fashion'; ?> — DuaFashion.store" />
+  <meta property="og:description" content="Africa's finest fashion retail management system. Clothing, shoes, jewelry, bags &amp; accessories — all in one place." />
+  <meta property="og:url"         content="https://pos.duafashion.store" />
+  <meta property="og:image"       content="https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"   content="Dua Fashion — Premium African Fashion Retail" />
+  <meta property="og:locale"      content="en_NG" />
+
+  <!-- ═══ TWITTER CARD ════════════════════════════════════════ -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Dua Fashion — Premium Fashion Retail POS" />
+  <meta name="twitter:description" content="Africa's finest fashion retail management system. Clothing, shoes, jewelry, bags &amp; accessories." />
+  <meta name="twitter:image"       content="https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop" />
+
+  <!-- ═══ GENERAL SEO ═════════════════════════════════════════ -->
+  <meta name="description"  content="Dua Fashion POS — Africa's premium fashion retail management system. Manage clothing, shoes, jewelry, bags &amp; accessories at DuaFashion.store" />
+  <meta name="author"       content="Intellisense Vivid Technologies" />
+  <meta name="robots"       content="noindex, nofollow" />
+  <meta name="theme-color"  content="#C9922A" />
+
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
