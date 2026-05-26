@@ -1,9 +1,11 @@
-name: Deploy to DuaFashion.store
+name: Deploy Storefront to DuaFashion.store
 
 on:
   push:
     branches:
       - main
+    paths:
+      - 'storefront/**'
 
 jobs:
   deploy:
@@ -13,18 +15,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy to cPanel via FTP
+      - name: Deploy storefront to cPanel via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
+          local-dir: ./storefront/
           server-dir: /public_html/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/README.md
-            **/.env
-            **/application/logs/**
-            **/application/cache/**
+          dangerous-clean-slate: false
